@@ -7,7 +7,7 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    var minsiffra = 0
+    private var minsiffra = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,13 +16,17 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        var  mintext =findViewById<TextView>(R.id.fancyText)
+        val mintext =findViewById<TextView>(R.id.fancyText)
         mintext.text = "Gunghäst"
 
-        var minknapp = findViewById<Button>(R.id.fancyButton)
+        val minknapp = findViewById<Button>(R.id.fancyButton)
         minknapp.setOnClickListener {
 
-            minsiffra = minsiffra + 1
+            minsiffra += 1
+
+            if(minsiffra > 10) {
+                minsiffra = 0
+            }
 
             mintext.text = minsiffra.toString()
 
